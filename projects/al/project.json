@@ -1,0 +1,22 @@
+{
+  "name": "al",
+  "version": "1.0.0",
+  "description": "s",
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "visual-novel",
+    "pop-engine",
+    "game"
+  ],
+  "engine": "POP Engine",
+  "config_scripts": [
+    "./config/config.pop.js",
+    "./config/setting.pop.js",
+    "./config/menu.pop.js"
+  ],
+  "main_scripts": [
+    "./script/main.pop.js"
+  ],
+  "createdAt": "2025-12-14T12:46:56.583Z"
+}

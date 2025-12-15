@@ -1,0 +1,47 @@
+{
+  "name": "pop-language",
+  "displayName": "POP Script Language",
+  "description": "Syntax highlighting untuk bahasa POP Script - Visual Novel style programming",
+  "publisher": "yourname",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "pop",
+    "popjs",
+    "visual novel",
+    "game",
+    "indonesia"
+  ],
+  "main": "./exetension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "popjs",
+        "aliases": [
+          "POP Script",
+          "popjs"
+        ],
+        "extensions": [
+          ".pop.js"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/pop.svg",
+          "dark": "./icons/pop.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "popjs",
+        "scopeName": "source.popjs",
+        "path": "./syntaxes/pop.Highlighting.json"
+      }
+    ]
+  }
+}

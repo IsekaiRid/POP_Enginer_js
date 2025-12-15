@@ -1,0 +1,68 @@
+{
+  "Game Scene/Label Block": {
+    "prefix": "label",
+    "body": [
+      "label: ${1:scene_name}",
+      "  music: ${2:music_file}.ogg",
+      "  bg: ${3:background_image}.jpg",
+      "  $0" 
+    ],
+    "description": "Membuat blok label/scene baru dengan music dan background."
+  },
+  "Start Block": {
+    "prefix": "start",
+    "body": [
+      "start:",
+      "  music: ${1:morningBGM}",
+      "  bg: ${2:room_image}",
+      "  ${3:character}: ${4:Hello, welcome to the game!}",
+      "  scene: ${5:next_scene_label}"
+    ],
+    "description": "Membuat blok 'start' game."
+  },
+  "Character Dialog (Dynamic)": {
+    "prefix": "say",
+    "body": [
+      "${1:CharacterName}: $2"
+    ],
+    "description": "Menambahkan baris dialog untuk karakter mana pun."
+  },
+  "Character Dialog with Expression": {
+    "prefix": "say_exp",
+    "body": [
+      "${1:CharacterName} ${2:expression}: $3"
+    ],
+    "description": "Menambahkan dialog dengan ekspresi karakter (contoh: Sora happy:)."
+  },
+  "Set Background": {
+    "prefix": "bg",
+    "body": [
+      "bg: ${1:image_file}.jpg"
+    ],
+    "description": "Mengatur latar belakang scene."
+  },
+  "Play Sound Effect": {
+    "prefix": "sfx",
+    "body": [
+      "sfx: ${1:sound_file}.wav"
+    ],
+    "description": "Memainkan efek suara."
+  },
+  "Choice Block": {
+    "prefix": "choice",
+    "body": [
+      "choice:",
+      "> ${1:Pilihan 1} -> ${2:label_satu}",
+      "> ${3:Pilihan 2} -> ${4:label_dua}",
+      "  $0"
+    ],
+    "description": "Membuat blok pilihan bercabang."
+  },
+  "End Scene": {
+    "prefix": "end",
+    "body": [
+      "scene: $1"
+    ],
+    "description": "Mengakhiri scene dengan transisi ke scene lain."
+  }
+}

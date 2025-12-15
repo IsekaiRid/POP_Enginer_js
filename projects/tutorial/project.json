@@ -1,0 +1,22 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "test",
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "visual-novel",
+    "pop-engine",
+    "game"
+  ],
+  "engine": "POP Engine",
+  "config_scripts": [
+    "./config/config.pop.js",
+    "./config/setting.pop.js",
+    "./config/menu.pop.js"
+  ],
+  "main_scripts": [
+    "./script/main.pop.js"
+  ],
+  "createdAt": "2025-12-15T07:37:34.110Z"
+}

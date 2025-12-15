@@ -1,0 +1,202 @@
+{
+  "name": "POP Script",
+  "scopeName": "source.popjs",
+  "fileTypes": [
+    "pop.js"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#labels"
+    },
+    {
+      "include": "#dialog"
+    },
+    {
+      "include": "#commands"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#unknown"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.popjs",
+          "match": "#.*$"
+        },
+        {
+          "name": "comment.block.popjs",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "name": "entity.name.function.label.popjs",
+          "match": "^\\s*(label)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*:",
+          "captures": {
+            "1": {
+              "name": "keyword.control.label.popjs"
+            },
+            "2": {
+              "name": "entity.name.function.popjs"
+            }
+          }
+        }
+      ]
+    },
+    "dialog": {
+      "patterns": [
+        {
+          "name": "meta.dialog.popjs",
+          "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*:\\s*(\".*\")",
+          "captures": {
+            "1": {
+              "name": "variable.other.character.popjs"
+            },
+            "2": {
+              "name": "string.quoted.double.popjs"
+            }
+          }
+        }
+      ]
+    },
+    "commands": {
+      "patterns": [
+        {
+          "name": "meta.command.scene.popjs",
+          "match": "^\\s*(scene)\\s+(bg)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.popjs"
+            },
+            "2": {
+              "name": "entity.name.tag.popjs"
+            },
+            "3": {
+              "name": "variable.other.popjs"
+            }
+          }
+        },
+        {
+          "name": "meta.command.show.popjs",
+          "match": "^\\s*(show|hide)\\s+([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s+(at)\\s+([a-zA-Z_][a-zA-Z0-9_]*))?",
+          "captures": {
+            "1": {
+              "name": "keyword.control.popjs"
+            },
+            "2": {
+              "name": "variable.other.popjs"
+            },
+            "3": {
+              "name": "keyword.control.popjs"
+            },
+            "4": {
+              "name": "entity.name.tag.popjs"
+            }
+          }
+        },
+        {
+          "name": "keyword.control.popjs",
+          "match": "\\b(scene|show|hide|with|jump|call|return|menu|if|elif|else|while|for|define|default)\\b"
+        },
+        {
+          "name": "support.function.popjs",
+          "match": "\\b(play|stop|pause|queue|voice|sound|music)\\b"
+        },
+        {
+          "name": "entity.name.tag.popjs",
+          "match": "\\b(at|center|left|right|truecenter|top|bottom|offscreenleft|offscreenright)\\b"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.language.popjs",
+          "match": "\\b(let|const|var)\\b"
+        },
+        {
+          "name": "variable.other.popjs",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?=\\s*[=:])"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.popjs",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.popjs",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.popjs",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.popjs",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.flow.popjs",
+          "match": "\\b(if|else|elif|while|for|break|continue|pass|return)\\b"
+        },
+        {
+          "name": "keyword.operator.popjs",
+          "match": "\\b(and|or|not|in|is)\\b|[=<>!+\\-*/%]+"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.numeric.popjs",
+          "match": "\\b[0-9]+\\.?[0-9]*\\b"
+        },
+        {
+          "name": "constant.language.boolean.popjs",
+          "match": "\\b(true|false|null|undefined|True|False|None)\\b"
+        }
+      ]
+    },
+    "unknown": {
+      "patterns": [
+        {
+          "name": "variable.other.popjs", 
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    }
+  }
+}

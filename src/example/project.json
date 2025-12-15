@@ -1,0 +1,21 @@
+{
+  "name": "Example Project",
+  "version": "1.0.0",
+  "description": "A visual-novel project powered by POP Engine",
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "visual-novel",
+    "pop-engine",
+    "game"
+  ],
+  "engine": "POP Engine",
+  "config_scripts": [
+    "./config/config.pop.js",
+    "./config/setting.pop.js",
+    "./config/menu.pop.js"
+  ],
+  "main_scripts": [
+    "./script/main.pop.js"
+  ]
+}
