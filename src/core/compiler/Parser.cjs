@@ -47,6 +47,10 @@ class Parser {
             case TokenType.MENU: return this.parseMenu();
             case TokenType.JUMP: return this.parseJump();
             case TokenType.SHOW: return this.showStmt();
+            //update
+            case TokenType.PLAY: return this.parsePlay();
+            case TokenType.STOP: return this.parseStop();
+
             case TokenType.IDENTIFIER: return this.parseDialogueOrShortcut();
             case TokenType.STRING: return this.parseDialogueOrShortcut();
             default: throw new Error(`Unexpected token ${this.current.type} at ${this.current.line}:${this.current.col}`);
@@ -137,6 +141,35 @@ class Parser {
         }
         this.skipNewlines();
         return { type: 'show', asset, position: pos };
+    }
+
+    parsePlay() {
+        this.consume(TokenType.PLAY, 'Expected play');
+
+        // Tentukan jenis audio (music atau sound)
+        const audioType = this.consume(TokenType.MUSIC, 'Expected music after play').value;
+
+        // Ambil identifier atau string untuk path/asset
+        let asset;
+        if (this.current.type === TokenType.STRING) {
+            asset = this.consume(TokenType.STRING, 'Expected music path').value;
+        } else {
+            asset = this.consume(TokenType.IDENTIFIER, 'Expected music asset name').value;
+        }
+
+        this.skipNewlines();
+        return {
+            type: 'play',
+            audioType: 'music',
+            asset: asset
+        };
+    }
+
+    parseStop() {
+        this.consume(TokenType.STOP, 'Expected stop');
+        this.consume(TokenType.MUSIC, 'Expected music after stop');
+        this.skipNewlines();
+        return { type: 'stop', audioType: 'music' };
     }
 }
 

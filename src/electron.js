@@ -39,6 +39,7 @@ ipcMain.handle("launch-project", async (_, folderPath) => {
   }
 });
 
+
 ipcMain.on("open-game-window", (_, payload) => {
   const { bundle, projectName } = payload;
   const projectRoot = path.join(

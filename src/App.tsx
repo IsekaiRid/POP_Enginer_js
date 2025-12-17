@@ -77,19 +77,6 @@ export default function App() {
     }
   };
 
-  // async function handleLaunch() {
-  //   if (!activeProject) {
-  //     alert('Pilih project dulu!');
-  //     return;
-  //   }
-  //   const res = await window.engine.launchProject(activeProject);
-  //   window.engine.openGameWindow(res.bundle);
-  //   if (res.ok) {
-  //     console.log('AST siap:', res.bundle);
-  //   } else {
-  //     alert(`Gagal launch:\n${res.error}`);
-  //   }
-  // }
 
   async function handleLaunch() {
     if (!activeProject) {
@@ -105,7 +92,7 @@ export default function App() {
         projectName: activeProject
       });
     } else {
-      alert(`Gagal launch:\n${res.error}`);
+      return null;
     }
   }
 

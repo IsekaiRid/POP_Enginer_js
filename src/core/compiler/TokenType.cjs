@@ -23,6 +23,12 @@ const TokenType = {
   INDENT:      'INDENT',      // spasi/tab di awal baris (untuk block menu/choice)
   DEDENT:      'DEDENT',      // kurang spasi
 
+  // Audio 
+  PLAY:        'PLAY',        // play
+  MUSIC:       'MUSIC',       // music
+  STOP:        'STOP',        // stop (penting untuk mematikan musik)
+  SOUND:       'SOUND',       // sound 
+
   // Special
   EOF:         'EOF',         // akhir file
   COMMENT:     'COMMENT',     // // ... (skip saat lexer)

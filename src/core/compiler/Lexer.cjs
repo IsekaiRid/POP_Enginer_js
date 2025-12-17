@@ -3,20 +3,20 @@ const TokenType = require('./TokenType.cjs')
 
 class Token {
   constructor(type, value, line = 1, col = 1) {
-    this.type  = type;
+    this.type = type;
     this.value = value;
-    this.line  = line;
-    this.col   = col;
+    this.line = line;
+    this.col = col;
   }
   toString() { return `${this.type}: ${JSON.stringify(this.value)}`; }
 }
 
 class Lexer {
   constructor(input) {
-    this.input  = input;
-    this.pos    = 0;
-    this.line   = 1;
-    this.col    = 1;
+    this.input = input;
+    this.pos = 0;
+    this.line = 1;
+    this.col = 1;
     this.tokens = [];
   }
 
@@ -78,7 +78,7 @@ class Lexer {
       // string "..." atau '...'
       if (this.peek() === '"' || this.peek() === "'") {
         const quote = this.peek();
-        const val   = this.readString(quote);
+        const val = this.readString(quote);
         this.tokens.push(new Token(TokenType.STRING, val, this.line, this.col));
         continue;
       }
@@ -87,16 +87,24 @@ class Lexer {
       if (/[a-zA-Z_]/.test(this.peek())) {
         const id = this.readIdentifier();
         const kw = {
-          let:   TokenType.LET,
+          let: TokenType.LET,
           label: TokenType.LABEL,
-          menu:  TokenType.MENU,
-          jump:  TokenType.JUMP,
-          show:  TokenType.SHOW,
-          at:    TokenType.AT,
+          menu: TokenType.MENU,
+          jump: TokenType.JUMP,
+          show: TokenType.SHOW,
+          at: TokenType.AT,
+
+          //new Update
+          play: TokenType.PLAY,
+          music: TokenType.MUSIC,
+          stop: TokenType.STOP,
+          sound: TokenType.SOUND,
         }[id];
         this.tokens.push(new Token(kw || TokenType.IDENTIFIER, id, this.line, this.col));
         continue;
       }
+
+
 
       // single char tokens
       const map = {
