@@ -22,7 +22,18 @@ Tujuan utama dari engine ini adalah menciptakan **lingkungan pengembangan yang "
 *(Isi bagian ini nanti dengan langkah singkat cara menjalankan engine-mu)*
 1. Clone repository ini.
 2. Install dependencies.
-3. Jalankan perintah `npm start` atau `python main.py` (sesuaikan dengan bahasa yang kamu pakai).
+3. Jalankan perintah `npm start`
+
+## 📂 Preview & Development
+Berikut adalah tampilan alat (tools) dan lingkungan pengembangan yang sedang saya bangun:
+
+<p align="center">
+  <img src="./src/assets/tool.png" width="45%" alt="Tool Preview" />
+  <img src="./src/assets/dev1.png" width="45%" alt="Development Preview" />
+</p>
+
+> **Note:** Gambar di atas menunjukkan progres sistem `tool.png` dan lingkungan kerja `dev1.png` yang saya gunakan untuk memonitor alur cerita di **POP Engine**
+
 
 ---
 *Dibuat dengan ❤️ untuk kemudahan pengembangan game masa depan.*
